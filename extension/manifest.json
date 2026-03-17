@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "Skill Recorder",
+  "version": "0.1.0",
+  "description": "Record browser demonstrations and generate reusable LLM skills",
+  "permissions": [
+    "storage",
+    "tabs",
+    "activeTab",
+    "scripting",
+    "webNavigation",
+    "sidePanel"
+  ],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "action": {
+    "default_title": "Skill Recorder"
+  },
+  "commands": {
+    "toggle-recording": {
+      "suggested_key": { "default": "Ctrl+Shift+R" },
+      "description": "Start/stop recording"
+    }
+  }
+}

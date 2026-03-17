@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Skill Recorder</title>
+  <link rel="stylesheet" href="sidepanel.css">
+</head>
+<body>
+  <header>
+    <h1>Skill Recorder</h1>
+  </header>
+
+  <section id="intent-section">
+    <label for="intent">What are you going to demonstrate?</label>
+    <input type="text" id="intent" placeholder="e.g. How to compare phone specs across brands">
+  </section>
+
+  <section id="controls">
+    <button id="record-btn" class="btn btn-record">Record</button>
+    <button id="stop-btn" class="btn btn-stop" disabled>Stop</button>
+    <button id="generate-btn" class="btn btn-generate" disabled>Generate Skill</button>
+  </section>
+
+  <section id="status">
+    <span id="status-indicator"></span>
+    <span id="status-text">Ready</span>
+  </section>
+
+  <section id="event-feed">
+    <h3>Events <span id="event-count">(0)</span></h3>
+    <div id="event-list"></div>
+  </section>
+
+  <section id="output-section" style="display: none;">
+    <h3>Generated Skill</h3>
+    <div id="output-controls">
+      <button id="copy-btn" class="btn btn-small">Copy SKILL.md</button>
+      <button id="export-mcp-btn" class="btn btn-small">Export MCP Tool</button>
+    </div>
+    <pre id="skill-output"></pre>
+  </section>
+
+  <section id="mcp-section" style="display: none;">
+    <h3>MCP Tool Definition</h3>
+    <button id="copy-mcp-btn" class="btn btn-small">Copy JSON</button>
+    <pre id="mcp-output"></pre>
+  </section>
+
+  <script src="sidepanel.js"></script>
+</body>
+</html>

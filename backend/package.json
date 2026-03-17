@@ -1,0 +1,16 @@
+{
+  "name": "skill-recorder-backend",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "LLM processing pipeline for Skill Recorder — turns browser event logs into reusable skill files",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  }
+}

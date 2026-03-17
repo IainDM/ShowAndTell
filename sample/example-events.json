@@ -1,0 +1,288 @@
+{
+  "intent": "Show how to compare phone specifications across brands",
+  "events": [
+    {
+      "seq": 1,
+      "timestamp": "2026-03-17T10:00:05Z",
+      "type": "navigation",
+      "url": "https://www.google.com",
+      "transition_type": "typed",
+      "is_back_forward": false,
+      "page_title": "Google"
+    },
+    {
+      "seq": 2,
+      "timestamp": "2026-03-17T10:00:08Z",
+      "type": "text_input",
+      "value": "iPhone 17 Pro specifications",
+      "url": "https://www.google.com",
+      "page_title": "Google",
+      "element": {
+        "tag": "input",
+        "name": "q",
+        "aria_label": "Search",
+        "role": "combobox",
+        "placeholder": null,
+        "type": "text",
+        "is_interactive": true
+      }
+    },
+    {
+      "seq": 3,
+      "timestamp": "2026-03-17T10:00:09Z",
+      "type": "key_press",
+      "key": "Enter",
+      "url": "https://www.google.com",
+      "page_title": "Google",
+      "element": {
+        "tag": "input",
+        "name": "q",
+        "aria_label": "Search",
+        "type": "text",
+        "is_interactive": true
+      }
+    },
+    {
+      "seq": 4,
+      "timestamp": "2026-03-17T10:00:10Z",
+      "type": "navigation",
+      "url": "https://www.google.com/search?q=iPhone+17+Pro+specifications",
+      "transition_type": "form_submit",
+      "is_back_forward": false,
+      "page_title": "iPhone 17 Pro specifications - Google Search"
+    },
+    {
+      "seq": 5,
+      "timestamp": "2026-03-17T10:00:14Z",
+      "type": "click",
+      "url": "https://www.google.com/search?q=iPhone+17+Pro+specifications",
+      "page_title": "iPhone 17 Pro specifications - Google Search",
+      "element": {
+        "tag": "a",
+        "text": "iPhone 17 Pro - Technical Specifications - Apple",
+        "href": "https://www.apple.com/iphone-17-pro/specs/",
+        "role": "link",
+        "is_interactive": true
+      },
+      "coordinates": { "x": 320, "y": 280 }
+    },
+    {
+      "seq": 6,
+      "timestamp": "2026-03-17T10:00:15Z",
+      "type": "navigation",
+      "url": "https://www.apple.com/iphone-17-pro/specs/",
+      "transition_type": "link",
+      "is_back_forward": false,
+      "page_title": "iPhone 17 Pro - Technical Specifications - Apple"
+    },
+    {
+      "seq": 7,
+      "timestamp": "2026-03-17T10:00:25Z",
+      "type": "text_selection",
+      "selected_text": "6.3-inch Super Retina XDR display, A19 Pro chip, 48MP camera system",
+      "url": "https://www.apple.com/iphone-17-pro/specs/",
+      "page_title": "iPhone 17 Pro - Technical Specifications - Apple",
+      "parent_element": {
+        "tag": "div",
+        "class": "specs-section",
+        "role": null,
+        "is_interactive": false
+      }
+    },
+    {
+      "seq": 8,
+      "timestamp": "2026-03-17T10:00:35Z",
+      "type": "navigation",
+      "url": "https://www.google.com/search?q=iPhone+17+Pro+specifications",
+      "transition_type": "link",
+      "is_back_forward": true,
+      "page_title": "iPhone 17 Pro specifications - Google Search"
+    },
+    {
+      "seq": 9,
+      "timestamp": "2026-03-17T10:00:40Z",
+      "type": "click",
+      "url": "https://www.google.com/search?q=iPhone+17+Pro+specifications",
+      "page_title": "iPhone 17 Pro specifications - Google Search",
+      "element": {
+        "tag": "input",
+        "name": "q",
+        "aria_label": "Search",
+        "type": "text",
+        "is_interactive": true
+      },
+      "coordinates": { "x": 400, "y": 60 }
+    },
+    {
+      "seq": 10,
+      "timestamp": "2026-03-17T10:00:45Z",
+      "type": "text_input",
+      "value": "Samsung Galaxy S25 Ultra specifications",
+      "url": "https://www.google.com/search?q=iPhone+17+Pro+specifications",
+      "page_title": "iPhone 17 Pro specifications - Google Search",
+      "element": {
+        "tag": "input",
+        "name": "q",
+        "aria_label": "Search",
+        "type": "text",
+        "is_interactive": true
+      }
+    },
+    {
+      "seq": 11,
+      "timestamp": "2026-03-17T10:00:46Z",
+      "type": "key_press",
+      "key": "Enter",
+      "url": "https://www.google.com/search?q=iPhone+17+Pro+specifications",
+      "page_title": "iPhone 17 Pro specifications - Google Search",
+      "element": {
+        "tag": "input",
+        "name": "q",
+        "aria_label": "Search",
+        "type": "text",
+        "is_interactive": true
+      }
+    },
+    {
+      "seq": 12,
+      "timestamp": "2026-03-17T10:00:47Z",
+      "type": "navigation",
+      "url": "https://www.google.com/search?q=Samsung+Galaxy+S25+Ultra+specifications",
+      "transition_type": "form_submit",
+      "is_back_forward": false,
+      "page_title": "Samsung Galaxy S25 Ultra specifications - Google Search"
+    },
+    {
+      "seq": 13,
+      "timestamp": "2026-03-17T10:00:52Z",
+      "type": "click",
+      "url": "https://www.google.com/search?q=Samsung+Galaxy+S25+Ultra+specifications",
+      "page_title": "Samsung Galaxy S25 Ultra specifications - Google Search",
+      "element": {
+        "tag": "a",
+        "text": "Galaxy S25 Ultra | Specs - Samsung",
+        "href": "https://www.samsung.com/us/smartphones/galaxy-s25-ultra/",
+        "role": "link",
+        "is_interactive": true
+      },
+      "coordinates": { "x": 310, "y": 290 }
+    },
+    {
+      "seq": 14,
+      "timestamp": "2026-03-17T10:00:53Z",
+      "type": "navigation",
+      "url": "https://www.samsung.com/us/smartphones/galaxy-s25-ultra/",
+      "transition_type": "link",
+      "is_back_forward": false,
+      "page_title": "Galaxy S25 Ultra | Samsung US"
+    },
+    {
+      "seq": 15,
+      "timestamp": "2026-03-17T10:01:05Z",
+      "type": "text_selection",
+      "selected_text": "6.9-inch QHD+ Dynamic AMOLED 2X, Snapdragon 8 Elite, 200MP camera",
+      "url": "https://www.samsung.com/us/smartphones/galaxy-s25-ultra/",
+      "page_title": "Galaxy S25 Ultra | Samsung US",
+      "parent_element": {
+        "tag": "div",
+        "class": "specs-detail",
+        "role": null,
+        "is_interactive": false
+      }
+    },
+    {
+      "seq": 16,
+      "timestamp": "2026-03-17T10:01:15Z",
+      "type": "tab_created",
+      "tab_id": 2,
+      "url": "about:newtab"
+    },
+    {
+      "seq": 17,
+      "timestamp": "2026-03-17T10:01:18Z",
+      "type": "navigation",
+      "url": "https://www.google.com",
+      "transition_type": "typed",
+      "is_back_forward": false,
+      "tab_id": 2,
+      "page_title": "Google"
+    },
+    {
+      "seq": 18,
+      "timestamp": "2026-03-17T10:01:22Z",
+      "type": "text_input",
+      "value": "iPhone 17 Pro vs Samsung Galaxy S25 Ultra Reddit",
+      "url": "https://www.google.com",
+      "page_title": "Google",
+      "element": {
+        "tag": "input",
+        "name": "q",
+        "aria_label": "Search",
+        "type": "text",
+        "is_interactive": true
+      }
+    },
+    {
+      "seq": 19,
+      "timestamp": "2026-03-17T10:01:23Z",
+      "type": "key_press",
+      "key": "Enter",
+      "url": "https://www.google.com",
+      "page_title": "Google",
+      "element": {
+        "tag": "input",
+        "name": "q",
+        "aria_label": "Search",
+        "type": "text",
+        "is_interactive": true
+      }
+    },
+    {
+      "seq": 20,
+      "timestamp": "2026-03-17T10:01:24Z",
+      "type": "navigation",
+      "url": "https://www.google.com/search?q=iPhone+17+Pro+vs+Samsung+Galaxy+S25+Ultra+Reddit",
+      "transition_type": "form_submit",
+      "is_back_forward": false,
+      "page_title": "iPhone 17 Pro vs Samsung Galaxy S25 Ultra Reddit - Google Search"
+    },
+    {
+      "seq": 21,
+      "timestamp": "2026-03-17T10:01:30Z",
+      "type": "click",
+      "url": "https://www.google.com/search?q=iPhone+17+Pro+vs+Samsung+Galaxy+S25+Ultra+Reddit",
+      "page_title": "iPhone 17 Pro vs Samsung Galaxy S25 Ultra Reddit - Google Search",
+      "element": {
+        "tag": "a",
+        "text": "iPhone 17 Pro vs S25 Ultra - which one? : r/smartphones",
+        "href": "https://www.reddit.com/r/smartphones/comments/1k2abc/iphone_17_pro_vs_s25_ultra_which_one/",
+        "role": "link",
+        "is_interactive": true
+      },
+      "coordinates": { "x": 330, "y": 310 }
+    },
+    {
+      "seq": 22,
+      "timestamp": "2026-03-17T10:01:31Z",
+      "type": "navigation",
+      "url": "https://www.reddit.com/r/smartphones/comments/1k2abc/iphone_17_pro_vs_s25_ultra_which_one/",
+      "transition_type": "link",
+      "is_back_forward": false,
+      "page_title": "iPhone 17 Pro vs S25 Ultra - which one? : r/smartphones"
+    },
+    {
+      "seq": 23,
+      "timestamp": "2026-03-17T10:01:50Z",
+      "type": "text_selection",
+      "selected_text": "Camera quality is very close, but the S25 Ultra wins on zoom. iPhone 17 Pro has better video stabilization. For battery life, the S25 Ultra has a slight edge.",
+      "url": "https://www.reddit.com/r/smartphones/comments/1k2abc/iphone_17_pro_vs_s25_ultra_which_one/",
+      "page_title": "iPhone 17 Pro vs S25 Ultra - which one? : r/smartphones",
+      "parent_element": {
+        "tag": "div",
+        "class": "comment-body",
+        "role": null,
+        "is_interactive": false
+      }
+    }
+  ]
+}
