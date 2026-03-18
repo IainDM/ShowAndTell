@@ -2,7 +2,7 @@
 
 A Chrome extension that watches you perform a task in your browser, generates a structured description of what you did, and copies it to your clipboard. Paste it into any LLM. Get a reusable skill back.
 
-It's the VBA macro recorder for the AI age — except instead of recording clicks, it captures what you're actually trying to do.
+It's like a VBA macro recorder for AI — except instead of recording clicks, it captures what you're actually trying to do.
 
 **No accounts. No API keys. No backend. No storage. No network requests. Nothing leaves your machine unless you paste it.**
 
@@ -14,7 +14,7 @@ LLMs can already automate browsers. But telling them how to perform a specific t
 
 Skill Recorder flips the direction. Instead of the LLM driving the browser, you drive the browser while the LLM watches. Then it writes the instructions for you.
 
-This is the solution for the long tail of tasks — the ones too specific to your job, your team, your weird internal process, to ever get a proper automation built. The ones that were never going to be automated. Until now.
+This is the solution for the long tail of tasks — the ones too specific to your job, your team, your weird internal process, to ever get a proper automation built. The ones that were never going to be automated.
 
 ## How It Works
 
@@ -30,11 +30,11 @@ That's it.
 
 ## Example
 
-I showed it how to download day-ahead electricity prices from SEMOpx, a not-particularly-user-friendly government data portal. Navigate here, click that filter, switch to table view, hit export. Fiddly, multi-step, easy to forget a step.
+I showed it how to download day-ahead electricity prices from an Irish data portal. Navigate here, click that filter, switch to table view, hit export.
 
 The extension captured the demonstration. I pasted it into Claude. It generated a [skill file](examples/sem-market-data.md) that understood the date format (DD/MM/YYYY), knew the page defaults to chart view and you need to switch to table, and identified that the download link triggers a JavaScript action rather than a simple file download.
 
-Now I can just say: "Can you get the day-ahead SEM prices for Monday for me please?" And it does. Because I showed it once.
+Now I can just say: "Can you get the day-ahead SEM prices for Monday for me please?", and it does.
 
 ## Install
 
@@ -57,7 +57,7 @@ Skill Recorder is stateless. It stores nothing. It sends nothing. It makes no ne
 
 The only way data leaves your machine is when you paste the clipboard into an LLM — and you choose which LLM, when, and you can read and redact the clipboard content first.
 
-This was a deliberate architectural choice. An earlier version had a built-in LLM backend, but that meant the extension needed network access and API keys — a security nightmare. Splitting it into "record locally, paste manually" means the extension needs almost no permissions and IT teams can actually audit it.
+This was a deliberate architectural choice. An earlier version had a built-in LLM backend, but that meant the extension needed network access and API keys — a security nightmare. Splitting it into "record locally, paste manually" means the extension needs almost no permissions and IT teams can actually audit it. It also means it doesn't care which LLM you are using.
 
 [Full privacy policy](PRIVACY.md)
 
@@ -117,9 +117,9 @@ The extension is deliberately simple — a few hundred lines of event listeners,
 
 ## Background
 
-This project started as a conversation with Claude. I was frustrated trying to get data from a clunky government portal and wondered: Claude can already automate Chrome — what if you could do it the other way round?
+This project started as a conversation with Claude. I was frustrated trying to get data from a clunky portal and wondered: Claude can already automate Chrome — what if you could do it the other way round?
 
-The research turned up an academic paper — [Alloy (Li et al., 2025)](https://arxiv.org/abs/2510.10049) — that describes a system for generating reusable agent workflows from user demonstrations. Nobody had shipped a lightweight tool based on the idea. Claude wrote a [spec](SPEC.md), Claude Code built the extension, the code flagged the security problem with the original architecture, and the clipboard-based split emerged as the solution.
+The research (that Claude did) turned up an academic paper — [Alloy (Li et al., 2025)](https://arxiv.org/abs/2510.10049) — that describes a system for generating reusable agent workflows from user demonstrations. Nobody had shipped a lightweight tool based on the idea. Claude wrote a [spec](SPEC.md), Claude Code built the extension..
 
 The full story: [link to Substack post]
 
