@@ -1,5 +1,6 @@
 // background.js — Service worker for Skill Recorder extension
-// Handles: recording state, navigation events, event aggregation, backend communication
+// Core: recording state, navigation events, event aggregation.
+// Backend communication is optional — the extension works standalone.
 
 let allEvents = [];
 let recording = false;
@@ -19,7 +20,6 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
     currentIntent = msg.intent || '';
     allEvents = [];
 
-    // Notify all tabs to start recording
     chrome.tabs.query({}, (tabs) => {
       for (const tab of tabs) {
         chrome.tabs.sendMessage(tab.id, { type: 'START_RECORDING' }).catch(() => {});
@@ -32,7 +32,6 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   if (msg.type === 'STOP_RECORDING') {
     recording = false;
 
-    // Notify all tabs to stop recording
     chrome.tabs.query({}, (tabs) => {
       for (const tab of tabs) {
         chrome.tabs.sendMessage(tab.id, { type: 'STOP_RECORDING' }).catch(() => {});
@@ -54,20 +53,19 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
     }).catch(() => {});
   }
 
-  // Get current events (for side panel)
+  // Primary export path: return raw events to the side panel
   if (msg.type === 'GET_EVENTS') {
     sendResponse({ intent: currentIntent, events: allEvents, recording });
     return true;
   }
 
-  // Submit to backend for LLM processing
+  // Optional: submit to backend API for LLM processing
   if (msg.type === 'GENERATE_SKILL') {
     processWithBackend()
       .then((result) => {
         chrome.runtime.sendMessage({
           type: 'SKILL_RESULT',
-          skill: result.skill,
-          mcpTool: result.mcpTool || null
+          skill: result.skill
         }).catch(() => {});
       })
       .catch((err) => {
@@ -80,7 +78,7 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
     return true;
   }
 
-  // Export as MCP tool
+  // Optional: export as MCP tool via backend
   if (msg.type === 'EXPORT_MCP') {
     exportMcp(msg.skill)
       .then((result) => {
@@ -104,7 +102,7 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
 
 chrome.webNavigation.onCommitted.addListener((details) => {
   if (!recording) return;
-  if (details.frameId !== 0) return; // main frame only
+  if (details.frameId !== 0) return;
 
   const isBackForward = details.transitionQualifiers?.includes('forward_back') || false;
 
@@ -166,7 +164,6 @@ chrome.tabs.onCreated.addListener((tab) => {
 
   allEvents.push(event);
 
-  // Inject content script into new tab
   if (tab.id) {
     chrome.scripting.executeScript({
       target: { tabId: tab.id },
@@ -200,16 +197,13 @@ chrome.commands.onCommand.addListener((command) => {
   }
 });
 
-// --- Backend communication ---
+// --- Optional: Backend communication ---
 
 async function processWithBackend() {
   const response = await fetch(`${BACKEND_URL}/api/process`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      intent: currentIntent,
-      events: allEvents
-    })
+    body: JSON.stringify({ intent: currentIntent, events: allEvents })
   });
 
   if (!response.ok) {

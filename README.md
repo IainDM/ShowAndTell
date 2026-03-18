@@ -2,23 +2,54 @@
 
 Record a browser demonstration, generate a reusable LLM skill file.
 
-A Chrome Extension captures DOM-level events while you perform a task, then a 3-agent LLM pipeline transforms the event log into a structured SKILL.md or MCP tool definition.
+A Chrome Extension captures DOM-level events while you perform a task. You then paste the captured event log (with a bundled prompt) into any LLM to generate a structured SKILL.md or MCP tool definition.
 
 ## Architecture
 
+The tool and the LLM are cleanly separated:
+
 ```
-Chrome Extension (event capture) → Express Backend (3-agent LLM pipeline) → SKILL.md / MCP tool
+Chrome Extension (event capture)  →  JSON event log + prompt  →  Any LLM  →  SKILL.md
+       (non-AI tool)                    (the interface)          (your choice)
 ```
 
-- **Agent 1 (Context Analyser)**: Extracts goals, interests, constraints from the demonstration
-- **Agent 2 (Action Analyser)**: Groups events into logical phases, filters noise
-- **Agent 3 (Skill Synthesiser)**: Combines both analyses into a reusable skill document
+The extension is fully self-contained. No API key or backend server required.
 
-Agents 1 & 2 run in parallel; Agent 3 consumes both outputs.
+An optional Express backend is included for API-powered generation if you have an Anthropic API key.
 
 ## Setup
 
-### Backend
+### Chrome Extension
+
+1. Open `chrome://extensions` in Chrome
+2. Enable "Developer mode" (top right)
+3. Click "Load unpacked" and select the `extension/` directory
+4. Click the extension icon to open the side panel
+
+That's it. No backend needed.
+
+## Usage
+
+1. Open the side panel and type what you're going to demonstrate
+2. Click **Record** and perform the task in the browser
+3. Click **Stop** when done
+4. Export your recording:
+   - **Copy Prompt for Claude** — copies a ready-to-paste prompt with your event log embedded. Paste into claude.ai (or any LLM) and get back a SKILL.md
+   - **Copy Event Log (JSON)** — copies the raw JSON for custom processing
+   - **Download JSON** — saves the event log as a file
+
+### Using with Claude (no API key needed)
+
+1. Record your demonstration
+2. Click **Copy Prompt for Claude**
+3. Open claude.ai and paste
+4. Claude will output a structured SKILL.md
+
+The prompt bundles the event log with instructions for context analysis, action analysis, and skill synthesis — the same 3-step pipeline the backend uses.
+
+### Using with the API backend (optional)
+
+If you have an Anthropic API key and want automated generation:
 
 ```bash
 cd backend
@@ -28,24 +59,11 @@ npm install
 npm start
 ```
 
-The server runs on `http://localhost:3000`.
+Then use the "Generate via API" option in the side panel. The server runs a 3-agent pipeline:
+- **Agent 1 (Context Analyser)** + **Agent 2 (Action Analyser)** run in parallel
+- **Agent 3 (Skill Synthesiser)** combines both into SKILL.md
 
-### Chrome Extension
-
-1. Open `chrome://extensions` in Chrome
-2. Enable "Developer mode" (top right)
-3. Click "Load unpacked" and select the `extension/` directory
-4. Click the extension icon to open the side panel
-
-## Usage
-
-1. Open the side panel and type what you're going to demonstrate
-2. Click **Record** and perform the task in the browser
-3. Click **Stop** when done
-4. Click **Generate Skill** to send the event log to the backend
-5. Review the generated SKILL.md, copy it or export as MCP tool JSON
-
-## Testing the backend independently
+### Testing the backend independently
 
 ```bash
 curl -X POST http://localhost:3000/api/process \

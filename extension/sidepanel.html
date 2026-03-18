@@ -18,7 +18,6 @@
   <section id="controls">
     <button id="record-btn" class="btn btn-record">Record</button>
     <button id="stop-btn" class="btn btn-stop" disabled>Stop</button>
-    <button id="generate-btn" class="btn btn-generate" disabled>Generate Skill</button>
   </section>
 
   <section id="status">
@@ -31,10 +30,36 @@
     <div id="event-list"></div>
   </section>
 
+  <!-- Export section: appears after recording stops -->
+  <section id="export-section" style="display: none;">
+    <h3>Export Recording</h3>
+    <div class="btn-group">
+      <button id="copy-json-btn" class="btn btn-export">Copy Event Log (JSON)</button>
+      <button id="download-json-btn" class="btn btn-export">Download JSON</button>
+    </div>
+    <div class="btn-group">
+      <button id="copy-prompt-btn" class="btn btn-export btn-primary">Copy Prompt for Claude</button>
+    </div>
+    <details id="prompt-preview-details">
+      <summary>Preview prompt</summary>
+      <pre id="prompt-preview"></pre>
+    </details>
+  </section>
+
+  <!-- Optional: API-powered generation (requires backend) -->
+  <section id="api-section" style="display: none;">
+    <details>
+      <summary>Use API backend (optional)</summary>
+      <p class="hint">Requires the backend server running on localhost:3000 with an API key.</p>
+      <button id="generate-btn" class="btn btn-generate" disabled>Generate via API</button>
+    </details>
+  </section>
+
+  <!-- Output section: for API-generated or pasted-back skills -->
   <section id="output-section" style="display: none;">
     <h3>Generated Skill</h3>
     <div id="output-controls">
-      <button id="copy-btn" class="btn btn-small">Copy SKILL.md</button>
+      <button id="copy-skill-btn" class="btn btn-small">Copy SKILL.md</button>
       <button id="export-mcp-btn" class="btn btn-small">Export MCP Tool</button>
     </div>
     <pre id="skill-output"></pre>
