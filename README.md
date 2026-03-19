@@ -8,13 +8,13 @@ It's like a VBA macro recorder for AI — except instead of recording clicks, it
 
 ## Why
 
-Writing instructions for how to do things in a browser always misses steps. You forget the obvious bits because they're obvious to you. It's like writing a recipe from memory — you'll leave out "preheat the oven" because of course you preheat the oven.
+Writing instructions for how to do things in a browser always misses steps. You forget the obvious bits because they're obvious to you. It's why watching a YouTube video to find out how to fix something is better than reading a list of instructions!
 
-LLMs can already automate browsers. But telling them how to perform a specific task means describing every step in words, and you'll inevitably miss the ones that feel obvious. What if you could just show it?
+LLMs can already automate browsers. But telling them how to perform a specific task means describing every step in words, and you'll inevitably miss the steps that feones that feel obvious. What if you could just show it?
 
 Skill Recorder flips the direction. Instead of the LLM driving the browser, you drive the browser while the LLM watches. Then it writes the instructions for you.
 
-This is the solution for the long tail of tasks — the ones too specific to your job, your team, your weird internal process, to ever get a proper automation built. The ones that were never going to be automated.
+It helps with those weird specific tasks we all have, that were never going to be automated!
 
 ## How It Works
 
@@ -38,7 +38,7 @@ Now I can just say: "Can you get the day-ahead SEM prices for Monday for me plea
 
 ## Install
 
-### Chrome Web Store (recommended)
+### Chrome Web Store (coming soon)
 
 [Install from Chrome Web Store](link-to-listing)
 
@@ -53,9 +53,9 @@ Now I can just say: "Can you get the day-ahead SEM prices for Monday for me plea
 
 ## Privacy
 
-Skill Recorder is stateless. It stores nothing. It sends nothing. It makes no network requests. The extension captures browser events in memory while you're recording, formats them as text, copies that text to your clipboard, and forgets everything.
+Skill Recorder stores nothing. It sends nothing. It makes no network requests. The extension captures browser events in memory while you're recording, formats them as text, copies that text to your clipboard, and forgets everything.
 
-The only way data leaves your machine is when you paste the clipboard into an LLM — and you choose which LLM, when, and you can read and redact the clipboard content first.
+The only way data leaves your machine is when you paste the clipboard into an LLM — and you choose which LLM, when, and you can read and edit the clipboard content first.
 
 This was a deliberate architectural choice. An earlier version had a built-in LLM backend, but that meant the extension needed network access and API keys — a security nightmare. Splitting it into "record locally, paste manually" means the extension needs almost no permissions and IT teams can actually audit it. It also means it doesn't care which LLM you are using.
 
@@ -119,9 +119,7 @@ The extension is deliberately simple — a few hundred lines of event listeners,
 
 This project started as a conversation with Claude. I was frustrated trying to get data from a clunky portal and wondered: Claude can already automate Chrome — what if you could do it the other way round?
 
-The research (that Claude did) turned up an academic paper — [Alloy (Li et al., 2025)](https://arxiv.org/abs/2510.10049) — that describes a system for generating reusable agent workflows from user demonstrations. Nobody had shipped a lightweight tool based on the idea. Claude wrote a [spec](SPEC.md), Claude Code built the extension..
-
-The full story: [link to Substack post]
+The research (that Claude did) turned up an academic paper — [Alloy (Li et al., 2025)](https://arxiv.org/abs/2510.10049) — that describes a system for generating reusable agent workflows from user demonstrations. As far as I could see, nobody had shipped a lightweight tool based on the idea. Claude wrote a [spec](SPEC.md), Claude Code built the extension... Basically, I (Iain) just supervised.
 
 ### References
 
